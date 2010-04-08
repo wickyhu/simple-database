@@ -11,3 +11,5 @@ http://code.google.com/p/iqtoolkit-oracle/
 Simple Database
 http://code.google.com/p/simple-database/
 
+Simple Database Help
+http://code.google.com/p/simple-database/w/list
