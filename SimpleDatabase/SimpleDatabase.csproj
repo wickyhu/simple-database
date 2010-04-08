@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{46714867-525F-4127-A53D-4D884A47252D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SimpleDatabase</RootNamespace>
+    <AssemblyName>SimpleDatabase</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attribute\DbAssociationAttribute.cs" />
+    <Compile Include="Attribute\DbFieldAttribute.cs" />
+    <Compile Include="Attribute\DbTableAttribute.cs" />
+    <Compile Include="Attribute\DbEmbeddedAttribute.cs" />
+    <Compile Include="Audit\DbAudit.cs" />
+    <Compile Include="Audit\DbAuditArgs.cs" />
+    <Compile Include="Audit\DbAuditDetail.cs" />
+    <Compile Include="DbTable\DbField.cs" />
+    <Compile Include="DbTable\DbFieldCollection.cs" />
+    <Compile Include="DbTable\DbFieldNames.cs" />
+    <Compile Include="DbTable\DbTable.cs" />
+    <Compile Include="Db\Db.Entity.cs" />
+    <Compile Include="Db\Db.Reflection.cs" />
+    <Compile Include="Db\Db.Table.cs" />
+    <Compile Include="Db\DbTransactionInfo.cs" />
+    <Compile Include="Db\Db.Query.cs" />
+    <Compile Include="Db\DbConnectionInfo.cs" />
+    <Compile Include="Db\DataSourceInfo.cs" />
+    <Compile Include="Db\Db.cs" />
+    <Compile Include="Db\Db.Exception.cs" />
+    <Compile Include="Db\Db.Exec.cs" />
+    <Compile Include="Db\Db.Enum.cs" />
+    <Compile Include="Db\Db.Event.cs" />
+    <Compile Include="Db\Db.Mapping.cs" />
+    <Compile Include="Db\Db.Metadata.cs" />
+    <Compile Include="Db\Db.Parameter.cs" />
+    <Compile Include="Db\Db.Property.cs" />
+    <Compile Include="Db\Db.Cache.cs" />
+    <Compile Include="Db\Db.Static.cs" />
+    <Compile Include="Db\Db.Transaction.cs" />
+    <Compile Include="Db\Db.Util.cs" />
+    <Compile Include="Db\DbTableEntityMapping.cs" />
+    <Compile Include="Helper\AttributeHelper.cs" />
+    <Compile Include="Helper\DbHelper.cs" />
+    <Compile Include="InfoProvider\IFunctionInfoProvider.cs" />
+    <Compile Include="InfoProvider\INextIdProvider.cs" />
+    <Compile Include="InfoProvider\IUserInfoProvider.cs" />
+    <Compile Include="InfoProvider\KeyTableNextIdProvider.cs" />
+    <Compile Include="Linq\SimpleMapper.cs" />
+    <Compile Include="Linq\SimpleMapping.cs" />
+    <Compile Include="Linq\SimpleMappingEntity.cs" />
+    <Compile Include="Linq\SimplePolicy.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Schema\SchemaInfo.cs" />
+    <Compile Include="Schema\SchemaInfo.Oracle.cs" />
+    <Compile Include="Schema\SchemaInfo.SqlServer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\IQToolkit\IQToolkit.Data\IQToolkit.Data.csproj">
+      <Project>{3A356510-9C25-4A94-87B9-EEB31B6A1303}</Project>
+      <Name>IQToolkit.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\IQToolkit\IQToolkit\IQToolkit.csproj">
+      <Project>{0DA62A7C-3B40-456F-A4B2-B3E19ED4080E}</Project>
+      <Name>IQToolkit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SimpleControls\SimpleControls\SimpleControls.csproj">
+      <Project>{31781BB9-282B-45BC-B9F3-241B1B365D5F}</Project>
+      <Name>SimpleControls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Db.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Readme.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

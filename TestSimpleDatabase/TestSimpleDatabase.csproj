@@ -1,0 +1,94 @@
+﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B94D98E1-480E-418A-BDC5-EBEECC3B16F4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TestSimpleDatabase</RootNamespace>
+    <AssemblyName>TestSimpleDatabase</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PerformanceTest.cs" />
+    <Compile Include="DbMetadataTest.cs" />
+    <Compile Include="DbExecTest.cs" />
+    <Compile Include="DbQueryTest.cs" />
+    <Compile Include="Northwind.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Shadow Include="Test References\SimpleDatabase.accessor" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\IQToolkit\IQToolkit.Data.OracleClient\IQToolkit.Data.OracleClient.csproj">
+      <Project>{01A00CBF-D30C-45DA-B85A-0F3F036DBBC3}</Project>
+      <Name>IQToolkit.Data.OracleClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\IQToolkit\IQToolkit.Data.SqlClient\IQToolkit.Data.SqlClient.csproj">
+      <Project>{3F003957-1B67-440B-BAFE-C2B32886A429}</Project>
+      <Name>IQToolkit.Data.SqlClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\IQToolkit\IQToolkit.Data\IQToolkit.Data.csproj">
+      <Project>{3A356510-9C25-4A94-87B9-EEB31B6A1303}</Project>
+      <Name>IQToolkit.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\IQToolkit\IQToolkit\IQToolkit.csproj">
+      <Project>{0DA62A7C-3B40-456F-A4B2-B3E19ED4080E}</Project>
+      <Name>IQToolkit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SimpleControls\SimpleControls\SimpleControls.csproj">
+      <Project>{31781BB9-282B-45BC-B9F3-241B1B365D5F}</Project>
+      <Name>SimpleControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SimpleDatabase\SimpleDatabase.csproj">
+      <Project>{46714867-525F-4127-A53D-4D884A47252D}</Project>
+      <Name>SimpleDatabase</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
