@@ -59,7 +59,7 @@ namespace SimpleDatabase
             return GetNextId(IdIndex);
         }
 
-        static Dictionary<int, CachedId> _cachedId = new Dictionary<int, CachedId>();
+        Dictionary<int, CachedId> _cachedId = new Dictionary<int, CachedId>();
 
         void RetrieveId(int currentIdIndex)
         {
